@@ -4,15 +4,13 @@
 {% endblock %}
 
 {% block title%}
-Flsk test
+ip-адрес
 {% endblock %}
 
 {% block content%}
-<div class="container-fluid">
-    <h1>Привет!</h1>
-    <p>Твой ip - {{ remote_ip }}</p>
-    <a href="/about">Что это</a>
-</div>
+    <div class="badge bg-primary text-wrap">
+        <h1>Твой ip - {{ remote_ip }}</h1>
+    </div>
 {% endblock %}
 
 {% block js %}
