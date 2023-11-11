@@ -4,11 +4,13 @@
 {% endblock %}
 
 {% block title%}
-About
+Random
 {% endblock %}
 
 {% block content%}
-    <h2>Тестовое приложение flask</h2>
+<div class="badge bg-primary text-wrap">
+    <h1>{{ random_characters }}</h1>
+</div>
 {% endblock %}
 
 {% block js %}
