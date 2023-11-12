@@ -16,6 +16,3 @@ jobs:
         python-version: '3.11'
     - run: pip install -r ./app/requirements.txt
     - run: python ./app/app_test.py
-
-    - name: Build the Docker image
-      run: docker build . --file ./app/Dockerfile --tag flask-test:$(date +%s)
