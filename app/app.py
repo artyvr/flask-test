@@ -1,3 +1,5 @@
+""" Main application file """
+
 import string
 import secrets
 from flask import Flask, request, render_template
