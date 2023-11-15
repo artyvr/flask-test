@@ -4,6 +4,7 @@ import unittest
 from app import app
 
 class BasicTestCase(unittest.TestCase):
+    """ Basic Tests """
 
     def test_index(self):
         """ Test index page """
