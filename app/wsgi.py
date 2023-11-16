@@ -1,3 +1,5 @@
+""" WSGI """
+
 from app import app
 
 
