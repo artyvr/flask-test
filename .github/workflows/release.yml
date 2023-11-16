@@ -18,12 +18,13 @@ jobs:
                 username: ${{ secrets.USERNAME }}
                 password: ${{ secrets.PASSWORD }}
                 port: ${{ secrets.PORT }}
-                script: rm -R -f /home/art/flask-test
-                        cd /home/art/
-                        git clone https://github.com/artyvr/flask-test.git
-                        cd flask-test/app/
-                        docker stop $(docker ps -aq)
-                        docker rm $(docker ps -aq)
-                        docker rmi $(docker images -q)
-                        docker build --tag 'flask-test' .
-                        docker run -d -p 80:5000 flask-test
+                script: | 
+                    rm -R -f /home/art/flask-test
+                    cd /home/art/
+                    git clone https://github.com/artyvr/flask-test.git
+                    cd flask-test/app/
+                    docker stop $(docker ps -aq)
+                    docker rm $(docker ps -aq)
+                    docker rmi $(docker images -q)
+                    docker build --tag 'flask-test' .
+                    docker run -d -p 80:5000 flask-test
