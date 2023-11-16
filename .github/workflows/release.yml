@@ -6,7 +6,7 @@ on:
 
 jobs:
     build:
-        name: Build and Deply
+        name: Build and Deploy
         runs-on: ubuntu-latest
         steps:
           - name: Check
@@ -18,5 +18,12 @@ jobs:
                 username: ${{ secrets.USERNAME }}
                 password: ${{ secrets.PASSWORD }}
                 port: ${{ secrets.PORT }}
-                script: ifconfig
-
+                script: rm -R -f /home/art/flask-test
+                        cd /home/art/
+                        git clone https://github.com/artyvr/flask-test.git
+                        cd flask-test/app/
+                        docker stop $(docker ps -aq)
+                        docker rm $(docker ps -aq)
+                        docker rmi $(docker images -q)
+                        docker build --tag 'flask-test' .
+                        docker run -d -p 80:5000 flask-test
