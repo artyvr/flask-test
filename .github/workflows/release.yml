@@ -1,0 +1,22 @@
+name: Release
+
+on:
+    release:
+        types: [published]
+
+jobs:
+    build:
+        name: Build and Deply
+        runs-on: ubuntu-latest
+        steps:
+          - name: Check
+            uses: actions/checkout@v4
+          - name: Deploy on server
+            uses: appleboy/ssh-action@master
+            with:
+                host: ${{ secrets.HOST }}
+                username: ${{ secrets.USERNAME }}
+                password: ${{ secrets.PASSWORD }}
+                port: ${{ secrets.PORT }}
+                script: ifconfig
+
