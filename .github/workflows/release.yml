@@ -19,10 +19,12 @@ jobs:
                 password: ${{ secrets.PASSWORD }}
                 port: ${{ secrets.PORT }}
                 script: | 
-                    rm -R -f /home/art/flask-test
+                    rm -R -f /home/art/flask-test-main
                     cd /home/art/
-                    git clone https://github.com/artyvr/flask-test.git
-                    cd flask-test/app/
+                    wget https://github.com/artyvr/flask-test/archive/refs/heads/main.zip
+                    unzip main.zip
+                    rm -R -f main.zip
+                    cd flask-test-main/app/
                     docker stop $(docker ps -aq)
                     docker rm $(docker ps -aq)
                     docker rmi $(docker images -q)
